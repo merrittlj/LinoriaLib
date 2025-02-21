@@ -100,6 +100,7 @@ function Library:SafeCallback(f, ...)
         return f(...);
     end;
 
+    print("calling!!!")
     local success, event = pcall(f, ...);
 
     if not success then
@@ -1230,7 +1231,7 @@ do
 
             Library:SafeCallback(KeyPicker.Callback, KeyPicker.Toggled)
             Library:SafeCallback(KeyPicker.Clicked, KeyPicker.Toggled)
-            print('pressing!!')
+            print('pressing!! ')
             Library:SafeCallback(KeyPicker.Pressed)
         end
 
