@@ -1229,7 +1229,7 @@ do
 
             Library:SafeCallback(KeyPicker.Callback, KeyPicker.Toggled)
             Library:SafeCallback(KeyPicker.Clicked, KeyPicker.Toggled)
-            Library:SafeCallback(KeyPicker.Pressed, KeyPicker)
+            Library:SafeCallback(KeyPicker.Pressed)
         end
 
         local Picking = false;
