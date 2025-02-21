@@ -92,6 +92,7 @@ end;
 
 function Library:SafeCallback(f, ...)
     if (not f) then
+        print("not f!!!!")
         return;
     end;
 
@@ -1229,6 +1230,7 @@ do
 
             Library:SafeCallback(KeyPicker.Callback, KeyPicker.Toggled)
             Library:SafeCallback(KeyPicker.Clicked, KeyPicker.Toggled)
+            print('pressing!!')
             Library:SafeCallback(KeyPicker.Pressed)
         end
 
