@@ -1209,10 +1209,6 @@ do
             KeyPicker.Clicked = Callback
         end
 
-        function KeyPicker:OnPress(Callback)
-            KeyPicker.Pressed = Callback
-        end
-
         function KeyPicker:OnChanged(Callback)
             KeyPicker.Changed = Callback
             Callback(KeyPicker.Value)
@@ -1229,7 +1225,6 @@ do
 
             Library:SafeCallback(KeyPicker.Callback, KeyPicker.Toggled)
             Library:SafeCallback(KeyPicker.Clicked, KeyPicker.Toggled)
-            Library:SafeCallback(KeyPicker.Pressed)
         end
 
         local Picking = false;
