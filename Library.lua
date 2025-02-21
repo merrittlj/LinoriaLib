@@ -1291,7 +1291,7 @@ do
 
         Library:GiveSignal(InputService.InputBegan:Connect(function(Input)
             if (not Picking) then
-                if KeyPicker.Mode == 'Toggle' then
+                if KeyPicker.Mode == 'Toggle' or KeyPicker.Mode == 'Press' then
                     local Key = KeyPicker.Value;
 
                     if Key == 'MB1' or Key == 'MB2' then
