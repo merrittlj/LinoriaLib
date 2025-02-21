@@ -1290,6 +1290,7 @@ do
         end);
 
         Library:GiveSignal(InputService.InputBegan:Connect(function(Input)
+            print('doing ' .. Input.KeyCode.Name)
             if (not Picking) then
                 if KeyPicker.Mode == 'Toggle' or KeyPicker.Mode == 'Press' then
                     local Key = KeyPicker.Value;
@@ -1303,7 +1304,6 @@ do
                     elseif Input.UserInputType == Enum.UserInputType.Keyboard then
                         if Input.KeyCode.Name == Key then
                             KeyPicker.Toggled = not KeyPicker.Toggled;
-                            print('doing ' .. Input.KeyCode.Name)
                             KeyPicker:DoClick()
                         end;
                     end;
