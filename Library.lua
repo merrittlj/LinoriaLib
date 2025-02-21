@@ -1010,7 +1010,7 @@ do
         local KeyPicker = {
             Value = Info.Default;
             Toggled = false;
-            Mode = Info.Mode or 'Toggle'; -- Always, Toggle, Hold
+            Mode = Info.Mode or 'Toggle'; -- Always, Toggle, Hold, Press
             Type = 'KeyPicker';
             Callback = Info.Callback or function(Value) end;
             ChangedCallback = Info.ChangedCallback or function(New) end;
@@ -1096,7 +1096,7 @@ do
             Parent = Library.KeybindContainer;
         },  true);
 
-        local Modes = Info.Modes or { 'Always', 'Toggle', 'Hold' };
+        local Modes = Info.Modes or { 'Always', 'Toggle', 'Hold', 'Press' };
         local ModeButtons = {};
 
         for Idx, Mode in next, Modes do
@@ -1190,6 +1190,8 @@ do
                 else
                     return InputService:IsKeyDown(Enum.KeyCode[KeyPicker.Value]);
                 end;
+            elseif KeyPicker.Mode == 'Press' then
+                return false;
             else
                 return KeyPicker.Toggled;
             end;
@@ -1205,6 +1207,10 @@ do
 
         function KeyPicker:OnClick(Callback)
             KeyPicker.Clicked = Callback
+        end
+
+        function KeyPicker:OnPress(Callback)
+            KeyPicker.Pressed = Callback
         end
 
         function KeyPicker:OnChanged(Callback)
@@ -1271,6 +1277,7 @@ do
 
                     Library:SafeCallback(KeyPicker.ChangedCallback, Input.KeyCode or Input.UserInputType)
                     Library:SafeCallback(KeyPicker.Changed, Input.KeyCode or Input.UserInputType)
+                    Library:SafeCallback(KeyPicker.Pressed, Input.KeyCode or Input.UserInputType)
 
                     Library:AttemptSave();
 
