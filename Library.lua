@@ -1230,6 +1230,7 @@ do
             Library:SafeCallback(KeyPicker.Callback, KeyPicker.Toggled)
             Library:SafeCallback(KeyPicker.Clicked, KeyPicker.Toggled)
             Library:SafeCallback(KeyPicker.Pressed)
+            print('pressed')
         end
 
         local Picking = false;
@@ -1302,6 +1303,7 @@ do
                     elseif Input.UserInputType == Enum.UserInputType.Keyboard then
                         if Input.KeyCode.Name == Key then
                             KeyPicker.Toggled = not KeyPicker.Toggled;
+                            print('doing ' .. Input.KeyCode.Name)
                             KeyPicker:DoClick()
                         end;
                     end;
