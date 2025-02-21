@@ -1230,7 +1230,6 @@ do
             Library:SafeCallback(KeyPicker.Callback, KeyPicker.Toggled)
             Library:SafeCallback(KeyPicker.Clicked, KeyPicker.Toggled)
             Library:SafeCallback(KeyPicker.Pressed)
-            print('pressed')
         end
 
         local Picking = false;
@@ -1290,7 +1289,6 @@ do
         end);
 
         Library:GiveSignal(InputService.InputBegan:Connect(function(Input)
-            print('doing ' .. Input.KeyCode.Name)
             if (not Picking) then
                 if KeyPicker.Mode == 'Toggle' or KeyPicker.Mode == 'Press' then
                     local Key = KeyPicker.Value;
